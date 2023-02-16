@@ -1,21 +1,9 @@
--var titulo = "Sub-Titulo Principal"
--var titulos = ["Titulo Principal", "Subtitulo 1", "Subtitulo 2", "Subtitulo 3",]
-doctype doctype html
-html(lang="en")
-	head
-		meta(charset="UTF-8")
-		meta(http-equiv="X-UA-Compatible", content="IE=edge")
-		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		link(rel="stylesheet", href="css/ejercicio-pug.css")
-		title Procesadores
-	body
-		header
-			h1 Platzi Games
-			a.boton Registro
+extend componentes/plantilla.png
+block contenidos
 		section.intro
 			.intro__imagen: img(src="images/imagen.png")
 			.intro--contenido 
-				h2 #{titulos[0] [5]}
+				h2 #{titulos[0]}
 				p
 					| Lorem, ipsum dolor sit amet consectetur adipisicing
 					| elit. Ratione ipsam vero porro enim incidunt fugit! 	 
@@ -24,5 +12,12 @@ html(lang="en")
 					| aliquam.
 					span Proin sed urna quis orci interdum rutrum.Integer rhoncus finibus nunc, ac porttiot ex dapibus ac.
 				a.boton Leer Más
-
-		
+						//- esta es la forma de crear un loop
+						//- ul
+		//- 	each titulo in titulos
+		//- 		li=titulo
+		//- Estamos llamando el mixin declarado en la parte superios
+		main.contenido
+			+caja('imagen.png',titulos[1],'Lorem, ipsum dolor sit amet consectetur adipisicing')
+			+caja('imagen.png',titulos[2],'Lorem, ipsum dolor sit amet consectetur adipisicing')
+			+caja('imagen.png',titulos[3],'Lorem, ipsum dolor sit amet consectetur adipisicing')
